@@ -8,6 +8,7 @@ $.getJSON('json_files/Abortion.json', function (data) {
     console.log(data);
 
     DG.graph =  data.graph.topic;
+    $("#graph-topic").text(String(DG.graph));
     for (node of data.nodes){
         DG.addNode(Number(node.id), {text: node.text, label: node.text.substring(0, 10)});
     }
@@ -51,7 +52,7 @@ $.getJSON('json_files/Abortion.json', function (data) {
 
 
 $( document ).ready(function() {
-    $("#graph-topic").text(String(DG.graph));
+
     $('#node-nb').text(1)
     $('#desc').text(DG.node.get(1).text);
 

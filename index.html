@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viz App Web Science Lab</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header>
+    <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h4 class="text-white">About</h4>
+                    <p class="text-muted">Add some information about the album below, the author, or any other
+                        background context. Make it a few sentences long so folks can pick up some informative tidbits.
+                        Then, link them off to some social networking sites or contact information.</p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                    <h4 class="text-white">Contact</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                        <li><a href="#" class="text-white">Like on Facebook</a></li>
+                        <li><a href="#" class="text-white">Email me</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                Argument Mining Lab
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main role="main">
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Argument Mining Lab</h1>
+            <p class="lead text-muted">A tool to visualize argument mining data.</p>
+            <p>
+                <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+            </p>
+        </div>
+    </section>
+
+    <p style="z-index:10; position:fixed;" id="besideMouse"></p>
+
+    <div class="container lab-content">
+        <h2>Graph for topic: </h2>
+        <h2 id="graph-topic"></h2>
+        <div id="graph-viz">
+
+        </div>
+        <span>Node selected: </span><span id="node-nb"></span>
+        <p id="desc"></p>
+
+    </div>
+    <br>
+
+</main>
+
+<footer class="text-muted">
+    <div class="container">
+        <p class="float-right">
+            <a href="#">Back to top</a>
+        </p>
+        <p>Student: Sovanny Huy Nikkilä</p>
+        <p>Web Science course at Université Nice Sophia-Antipolis</p>
+    </div>
+</footer>
+
+<!-- version compatible with jsnetworkx -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+<script src="jsnetworkx.js"></script>
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="main.js"></script>
+</body>
+</html>

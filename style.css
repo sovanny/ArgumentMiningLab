@@ -1,0 +1,20 @@
+.lab-content {
+
+    width: 800px;
+    background-color: #e9ecef;
+
+}
+
+#graph-viz {
+    height: 600px;
+}
+
+.g-node text {
+
+    font-size: 2px;
+
+}
+
+main{
+    background-color: #f4f8fc;
+}

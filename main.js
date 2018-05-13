@@ -188,6 +188,7 @@ function highlight_text(essay_original, starts){
         ind = starts[i].end + 1;
     }
     essay_html += essay_original.substring(ind);
+    $('#annotated-text').empty();
     $('#annotated-text').append(essay_html);
 }
 

@@ -10,54 +10,68 @@
 <body>
 
 <header>
-    <div class="collapse bg-dark" id="navbarHeader">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-md-7 py-4">
-                    <h4 class="text-white">About</h4>
-                    <p class="text-muted">Add some information about the album below, the author, or any other
-                        background context. Make it a few sentences long so folks can pick up some informative tidbits.
-                        Then, link them off to some social networking sites or contact information.</p>
-                </div>
-                <div class="col-sm-4 offset-md-1 py-4">
-                    <h4 class="text-white">Contact</h4>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                        <li><a href="#" class="text-white">Like on Facebook</a></li>
-                        <li><a href="#" class="text-white">Email me</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="navbar navbar-dark bg-dark box-shadow">
-        <div class="container d-flex justify-content-between">
-            <a href="#" class="navbar-brand d-flex align-items-center">
-                Argument Mining Lab
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
-                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">Argument Mining Lab</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07"
+                    aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample07">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#debatepedia">Dataset 1: Debatepedia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#annotated-essays">Dataset 2: Annotated Essays</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#annotated-speeches">Dataset 3: Annotated Speeches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="preprocessing.html" target="_blank">Preprocessing</a>
+                    </li>
+                </ul>
+
+            </div>
         </div>
-    </div>
+    </nav>
+
 </header>
 
 <main role="main">
 
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">Argument Mining Lab</h1>
-            <p class="lead text-muted">A tool to visualize argument mining data. <br>
-                If the graphs doesn't show or the console ouputs errors, please try reloading the page once.</p>
+            <h1 class="jumbotron-heading">Lab: Visualizing Argument Mining Data</h1>
+            <p class="lead text-muted">A tool to visualize argument mining data. <a href="lab_desc.pdf" target="_blank">View
+                lab description.</a><br>
+                If the graphs don't show or the console ouputs errors, please try reloading the page once.</p>
+            <p class="lead">The data was first preprocessed using python.</p>
+            <a href="preprocessing.html" class="btn btn-primary my-2" target="_blank">View preprocessing python code</a>
         </div>
     </section>
 
     <p style="z-index:10; position:fixed;" id="besideMouse"></p>
-    <section class="debatepedia">
+    <section id="debatepedia">
         <div class="container">
             <h1>Dataset 1: Debatepedia</h1>
-            <div class="lab-content">
+            <p>Show graph visualization of argument data and the relationships between arguments. <br>Green means
+                entailment and red means non-entailment. </p>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown-1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Topic
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item topic" type="button" >Abortion</button>
+                    <button class="dropdown-item topic" type="button" >Arminglibianrebels</button>
+                    <button class="dropdown-item topic" type="button" >Cellphones</button>
+                </div>
+            </div>
+
+            <div class="lab-content" id="lab-1">
                 <h2>Graph for topic: </h2>
                 <h2 id="graph-topic"></h2>
                 <div id="graph-viz">
@@ -70,7 +84,7 @@
             <br>
         </div>
     </section>
-    <section class="annotated-essays">
+    <section id="annotated-essays">
         <div class="container">
             <h1>Dataset 2: Annotated Essays</h1>
             <div>Some descriptions and buttons
@@ -84,8 +98,26 @@
                     <span id="premise-legend">Premise</span><br>
                     <span>Node selected: </span><span id="node-nb-2"></span>
                     <p id="desc-2"></p>
-                    <h2>Color-coded annotated essay: </h2> <span><a href="#annotated-text" id="reload-text" class="btn btn-secondary my-2">Reload</a></span>
+                    <h2>Color-coded annotated essay: </h2> <span><a id="reload-text" class="btn btn-primary my-2">Show text</a></span>
                     <p id="annotated-text"></p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section id="annotated-speeches">
+        <div class="container">
+            <h1>Dataset 3: Annotated Speeches</h1>
+            <div>Some descriptions and buttons
+
+                <div class="lab-content">
+                    <h2>Color-coded annotated speech: </h2>
+                    <span><a href="#annotated-speeches" id="reload-speech-1"
+                             class="btn btn-secondary my-2">Load Cameron</a></span>
+                    <span><a href="#annotated-speeches" id="reload-speech-2"
+                             class="btn btn-secondary my-2">Load Clegg</a></span>
+                    <span><a href="#annotated-speeches" id="reload-speech-3" class="btn btn-secondary my-2">Load Miliband</a></span>
+                    <p id="annotated-speech"></p>
                 </div>
             </div>
 
@@ -112,6 +144,13 @@
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
 <script src="main.js"></script>
 </body>
 </html>

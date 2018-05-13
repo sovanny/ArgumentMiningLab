@@ -31,6 +31,9 @@ $(document).ready(function () {
             $('#desc-2').text(DG_essay.node.get(nodeId).text);
             $('#graph-viz-2 .g2-node').css({stroke: 'rgb(51, 51, 51)'});
             $(this).find('.g2-node').css({stroke: "#ff5bbd"});
+            $('#annotated-text').find('*').css({"border-style": "none"});
+            $('#lab-2').find('#text-part-' + nodeId).css({"border-style": "dotted"});
+
 
         }
     );
@@ -112,8 +115,7 @@ $('.topic').click(function () {
 
 //essays
 let essay_text = "";
-let starts = [];
-let ends = [];
+let points = [];
 
 $('.essay').click(function () {
     $(".g2-node").remove();
@@ -128,8 +130,7 @@ function loadEssayData(essaynumber) {
     DG_essay = new jsnx.DiGraph();
     //essays
     essay_text = "";
-    starts = [];
-    ends = [];
+    points = [];
 
     $.getJSON('json_files_2/'+ essaynumber +'_.json', function (data) {
 
@@ -142,8 +143,9 @@ function loadEssayData(essaynumber) {
         DG_essay.graph = data.graph.topic;
         $("#graph-topic-2").text(String(DG_essay.graph));
 
+
         for (node of data.nodes) {
-            starts.push({entity: node.entity, start: Number(node.start), end: Number(node.end)});
+            points.push({entity: node.entity, start: Number(node.start), end: Number(node.end), id: node.id});
 
             if (node.entity === 'MajorClaim') {
                 DG_essay.addNode(node.id, {
@@ -222,22 +224,22 @@ function loadEssayData(essaynumber) {
 
 loadEssayData('essay01');
 
-function highlight_text(essay_original, starts) {
+function highlight_text(essay_original, points) {
     let essay_html = "";
     let ind = 0;
     let temp = "";
     let color ="";
-    starts.sort(function (a, b) {
+    points.sort(function (a, b) {
         return a.start - b.start;
     });
-    for (let i = 0; i < starts.length; i++) {
-        essay_html += essay_original.substring(ind, starts[i].start);
-        if(starts[i].entity === "MajorClaim"){color = 'yellow'}
-        if(starts[i].entity === "Claim"){color = 'orange'}
-        if(starts[i].entity === "Premise"){color = 'lightblue'}
-        temp = '<span style="background-color: ' + color + '" >' + essay_original.substring(starts[i].start, starts[i].end) + "</span>";
+    for (let i = 0; i < points.length; i++) {
+        essay_html += essay_original.substring(ind, points[i].start);
+        if(points[i].entity === "MajorClaim"){color = 'yellow'}
+        if(points[i].entity === "Claim"){color = 'orange'}
+        if(points[i].entity === "Premise"){color = 'lightblue'}
+        temp = '<span style="background-color: ' + color + '" id="text-part-'+ points[i].id+'">' + essay_original.substring(points[i].start, points[i].end) + "</span>";
         essay_html += temp;
-        ind = starts[i].end + 1;
+        ind = points[i].end + 1;
     }
     essay_html += essay_original.substring(ind);
 
@@ -247,7 +249,7 @@ function highlight_text(essay_original, starts) {
 
 $("#reload-text").click(function () {
     $('#annotated-text').empty();
-    highlight_text(essay_text, starts);
+    highlight_text(essay_text, points);
 });
 
 

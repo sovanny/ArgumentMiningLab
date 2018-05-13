@@ -30,6 +30,8 @@ main{
     min-height: 100px;
 }
 
+
+
 #desc-2{
     min-height: 40px;
 }
@@ -58,4 +60,5 @@ main{
 #besideMouse{
     background-color: white;
     max-width: 300px;
+
 }

@@ -2,10 +2,17 @@
 
     width: 800px;
     background-color: #e9ecef;
+    margin: auto;
+    padding: 15px;
 
 }
 
+
 #graph-viz {
+    height: 600px;
+}
+
+#graph-viz-2{
     height: 600px;
 }
 
@@ -18,3 +25,22 @@
 main{
     background-color: #f4f8fc;
 }
+
+#desc{
+    min-height: 100px;
+}
+
+#desc-2{
+    min-height: 40px;
+}
+
+#majorclaim-legend, .MajorClaim{
+    background-color: yellow;
+}
+#claim-legend, .Claim {
+    background-color: orange;
+}
+#premise-legend, .Premise{
+    background-color: lightblue;
+}
+

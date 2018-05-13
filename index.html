@@ -48,7 +48,8 @@
     <section class="jumbotron text-center">
         <div class="container">
             <h1 class="jumbotron-heading">Argument Mining Lab</h1>
-            <p class="lead text-muted">A tool to visualize argument mining data.</p>
+            <p class="lead text-muted">A tool to visualize argument mining data. <br>
+                If the graphs doesn't show or the console ouputs errors, please try reloading the page once.</p>
             <p>
                 <a href="#" class="btn btn-primary my-2">Main call to action</a>
                 <a href="#" class="btn btn-secondary my-2">Secondary action</a>
@@ -57,18 +58,43 @@
     </section>
 
     <p style="z-index:10; position:fixed;" id="besideMouse"></p>
+    <section class="debatepedia">
+        <div class="container">
+            <h1>Dataset 1: Debatepedia</h1>
+            <div class="lab-content">
+                <h2>Graph for topic: </h2>
+                <h2 id="graph-topic"></h2>
+                <div id="graph-viz">
 
-    <div class="container lab-content">
-        <h2>Graph for topic: </h2>
-        <h2 id="graph-topic"></h2>
-        <div id="graph-viz">
+                </div>
+                <span>Node selected: </span><span id="node-nb"></span>
+                <p id="desc"></p>
+
+            </div>
+            <br>
+        </div>
+    </section>
+    <section class="annotated-essays">
+        <div class="container">
+            <h1>Dataset 2: Annotated Essays</h1>
+            <div>Some descriptions and buttons
+
+                <div class="lab-content">
+                    <h2>Graph for topic: </h2>
+                    <h2 id="graph-topic-2"></h2>
+                    <div id="graph-viz-2"></div>
+                    <span id="majorclaim-legend">MajorClaim </span>
+                    <span id="claim-legend">Claim </span>
+                    <span id="premise-legend">Premise</span><br>
+                    <span>Node selected: </span><span id="node-nb-2"></span>
+                    <p id="desc-2"></p>
+                    <h2>Color-coded annotated essay: </h2> <span><a href="#annotated-text" id="reload-text" class="btn btn-secondary my-2">Reload</a></span>
+                    <p id="annotated-text"></p>
+                </div>
+            </div>
 
         </div>
-        <span>Node selected: </span><span id="node-nb"></span>
-        <p id="desc"></p>
-
-    </div>
-    <br>
+    </section>
 
 </main>
 

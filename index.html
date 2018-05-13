@@ -48,7 +48,10 @@
             <p class="lead text-muted">A tool to visualize argument mining data. <a href="lab_desc.pdf" target="_blank">View
                 lab description.</a><br>
                 If the graphs don't show or the console ouputs errors, please try reloading the page once.</p>
-            <p class="lead">The data was first preprocessed using python.</p>
+            <p class="lead">The data was first <b>preprocessed</b> using python.</p>
+            <p class="lead">The library NetworkX was used to create the graphs. For web, the ported version <a
+                    href="http://jsnetworkx.org/">jsnetworkx</a> was used.
+            </p>
             <a href="preprocessing.html" class="btn btn-primary my-2" target="_blank">View preprocessing python code</a>
         </div>
     </section>
@@ -57,17 +60,37 @@
     <section id="debatepedia">
         <div class="container">
             <h1>Dataset 1: Debatepedia</h1>
-            <p>Show graph visualization of argument data and the relationships between arguments. <br>Green means
+            <p>Show graph visualization of argument data and the relationships between arguments. <br>Green edge means
                 entailment and red means non-entailment. </p>
-            <div class="dropdown">
+            <div class="dropdown dropright">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown-1"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Select Topic
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <button class="dropdown-item topic" type="button" >Abortion</button>
-                    <button class="dropdown-item topic" type="button" >Arminglibianrebels</button>
-                    <button class="dropdown-item topic" type="button" >Cellphones</button>
+                    <button class="dropdown-item topic" type="button">Abortion</button>
+                    <button class="dropdown-item topic" type="button">Arminglibianrebels</button>
+                    <button class="dropdown-item topic" type="button">Cellphones</button>
+                    <button class="dropdown-item topic" type="button">Childbeautycontests</button>
+                    <button class="dropdown-item topic" type="button">Chinaonechildpolicy</button>
+                    <button class="dropdown-item topic" type="button">Cocanarcotic</button>
+                    <button class="dropdown-item topic" type="button">Gasvehicles</button>
+                    <button class="dropdown-item topic" type="button">Gaymarriage</button>
+                    <button class="dropdown-item topic" type="button">Groundzeromosque</button>
+                    <button class="dropdown-item topic" type="button">Internetaccess</button>
+                    <button class="dropdown-item topic" type="button">Marijuanafree</button>
+                    <button class="dropdown-item topic" type="button">Militaryservice</button>
+                    <button class="dropdown-item topic" type="button">Noflyzone</button>
+                    <button class="dropdown-item topic" type="button">Obesity</button>
+                    <button class="dropdown-item topic" type="button">Osamaphoto</button>
+                    <button class="dropdown-item topic" type="button">Privatizingsocialsecurity</button>
+                    <button class="dropdown-item topic" type="button">Securityprofiling</button>
+                    <button class="dropdown-item topic" type="button">Sobrietytest</button>
+                    <button class="dropdown-item topic" type="button">Solarenergy</button>
+                    <button class="dropdown-item topic" type="button">Sobrietytest</button>
+                    <button class="dropdown-item topic" type="button">Tablet</button>
+                    <button class="dropdown-item topic" type="button">Vegetarianism</button>
+                    <button class="dropdown-item topic" type="button">Violentgames</button>
                 </div>
             </div>
 
@@ -86,21 +109,46 @@
     </section>
     <section id="annotated-essays">
         <div class="container">
-            <h1>Dataset 2: Annotated Essays</h1>
-            <div>Some descriptions and buttons
+            <h1>Dataset 2: Annotated Persuasive Essays</h1>
+            <div>
+                <p>A graph visualization of the relationship between three entities: MajorClaim, Claims and
+                    Premises.</p>
+                <p>The original text is annotated using different colors for the different entities.</p>
+                <div class="dropdown dropright">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown-2"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select Topic
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item essay" type="button">essay01</button>
+                        <button class="dropdown-item essay" type="button">essay02</button>
+                        <button class="dropdown-item essay" type="button">essay03</button>
+                        <button class="dropdown-item essay" type="button">essay04</button>
+                        <button class="dropdown-item essay" type="button">essay05</button>
+                        <button class="dropdown-item essay" type="button">essay06</button>
+                        <button class="dropdown-item essay" type="button">essay07</button>
+                        <button class="dropdown-item essay" type="button">essay08</button>
 
-                <div class="lab-content">
-                    <h2>Graph for topic: </h2>
-                    <h2 id="graph-topic-2"></h2>
-                    <div id="graph-viz-2"></div>
-                    <span id="majorclaim-legend">MajorClaim </span>
-                    <span id="claim-legend">Claim </span>
-                    <span id="premise-legend">Premise</span><br>
-                    <span>Node selected: </span><span id="node-nb-2"></span>
-                    <p id="desc-2"></p>
-                    <h2>Color-coded annotated essay: </h2> <span><a id="reload-text" class="btn btn-primary my-2">Show text</a></span>
-                    <p id="annotated-text"></p>
+                    </div>
                 </div>
+
+                <div class="lab-content row" id="lab-2">
+                    <div class="lab-2-floats col">
+                        <h2>Graph for topic: </h2>
+                        <h2 id="graph-topic-2"></h2>
+                        <div id="graph-viz-2"></div>
+                        <span id="majorclaim-legend">MajorClaim </span>
+                        <span id="claim-legend">Claim </span>
+                        <span id="premise-legend">Premise</span><br>
+                        <span>Node selected: </span><span id="node-nb-2"></span>
+                        <p id="desc-2"></p>
+                    </div>
+                    <div class="lab-2-floats col">
+                        <h2>Color-coded annotated essay: </h2> <span><a id="reload-text" class="btn btn-primary my-2">Show text</a></span>
+                        <p id="annotated-text"></p>
+                    </div>
+                </div>
+
             </div>
 
         </div>
@@ -108,15 +156,16 @@
     <section id="annotated-speeches">
         <div class="container">
             <h1>Dataset 3: Annotated Speeches</h1>
-            <div>Some descriptions and buttons
+            <div>Claims in speeches from politicians has been annotated using css styling.
 
-                <div class="lab-content">
+                <div class="lab-content" id="lab-3">
                     <h2>Color-coded annotated speech: </h2>
                     <span><a href="#annotated-speeches" id="reload-speech-1"
-                             class="btn btn-secondary my-2">Load Cameron</a></span>
+                             class="btn btn-primary my-2">Load Cameron</a></span>
                     <span><a href="#annotated-speeches" id="reload-speech-2"
-                             class="btn btn-secondary my-2">Load Clegg</a></span>
-                    <span><a href="#annotated-speeches" id="reload-speech-3" class="btn btn-secondary my-2">Load Miliband</a></span>
+                             class="btn btn-primary my-2">Load Clegg</a></span>
+                    <span><a href="#annotated-speeches" id="reload-speech-3"
+                             class="btn btn-primary my-2">Load Miliband</a></span>
                     <p id="annotated-speech"></p>
                 </div>
             </div>

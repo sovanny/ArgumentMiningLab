@@ -1,6 +1,6 @@
 .lab-content {
 
-    width: 800px;
+    width: 600px;
     background-color: #e9ecef;
     margin: auto;
     padding: 15px;
@@ -9,11 +9,11 @@
 
 
 #graph-viz {
-    height: 600px;
+    height: 500px;
 }
 
 #graph-viz-2{
-    height: 600px;
+    height: 500px;
 }
 
 .g-node text {
@@ -44,3 +44,18 @@ main{
     background-color: lightblue;
 }
 
+#lab-3{
+   width: 100%;
+}
+
+.lab-2-floats{
+
+}
+
+#lab-2{
+    width: 100%;
+}
+#besideMouse{
+    background-color: white;
+    max-width: 300px;
+}

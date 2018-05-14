@@ -62,3 +62,9 @@ main{
     max-width: 300px;
 
 }
+
+.scrollable-menu {
+    height: auto;
+    max-height: 600px;
+    overflow-x: hidden;
+}

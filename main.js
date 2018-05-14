@@ -1,3 +1,13 @@
+for (let i = 1; i < 91; i++){
+    if(i < 10){
+        $("#dropdown-essays").append('<button class="dropdown-item essay" type="button">essay0' + i + '</button>');
+    }
+    else{
+        $("#dropdown-essays").append('<button class="dropdown-item essay" type="button">essay' + i + '</button>');
+    }
+
+}
+
 $(document).ready(function () {
 
 
@@ -6,7 +16,7 @@ $(document).ready(function () {
         $('#besideMouse').offset(cpos);
     });
 
-    $(document).on("click", "#graph-viz .node", function(){
+    $(document).on("click", "#graph-viz .node", function () {
         var nodeId = Number($(this).find('.g-node').attr('id'));
         $('#node-nb').text(nodeId);
         $('#desc').text(DG.node.get(nodeId).text);
@@ -24,7 +34,7 @@ $(document).ready(function () {
         }
     }, "#graph-viz .node");
 
-    $(document).on("click", "#graph-viz-2 .node", function(){
+    $(document).on("click", "#graph-viz-2 .node", function () {
             let nodeId = $(this).find('.g2-node').attr('id');
             nodeId = Number(nodeId.substring(3));
             $('#node-nb-2').text(nodeId);
@@ -68,7 +78,6 @@ function loadDebatepedia(topic) {
             } else {
                 DG.addEdge(Number(edge.source), Number(edge.target), {color: 'red'});
             }
-
         }
         jsnx.draw(DG, {
             element: '#graph-viz',
@@ -93,9 +102,7 @@ function loadDebatepedia(topic) {
                 class: function (d) {
                     return 'g-node';
                 }
-
             }
-
         });
 
         $('#node-nb').text(1);
@@ -112,7 +119,6 @@ $('.topic').click(function () {
 });
 
 
-
 //essays
 let essay_text = "";
 let points = [];
@@ -126,16 +132,17 @@ $('.essay').click(function () {
 
 
 let DG_essay;
+
 function loadEssayData(essaynumber) {
     DG_essay = new jsnx.DiGraph();
     //essays
     essay_text = "";
     points = [];
 
-    $.getJSON('json_files_2/'+ essaynumber +'_.json', function (data) {
+    $.getJSON('json_files_2/' + essaynumber + '_.json', function (data) {
 
 
-        $.get('essay_texts/'+ essaynumber +'.txt', function (data) {
+        $.get('essay_texts/' + essaynumber + '.txt', function (data) {
             essay_text = data;
         }, 'text');
 
@@ -219,7 +226,6 @@ function loadEssayData(essaynumber) {
     });
 
 
-
 }
 
 loadEssayData('essay01');
@@ -228,16 +234,23 @@ function highlight_text(essay_original, points) {
     let essay_html = "";
     let ind = 0;
     let temp = "";
-    let color ="";
+    let color = "";
     points.sort(function (a, b) {
         return a.start - b.start;
     });
     for (let i = 0; i < points.length; i++) {
         essay_html += essay_original.substring(ind, points[i].start);
-        if(points[i].entity === "MajorClaim"){color = 'yellow'}
-        if(points[i].entity === "Claim"){color = 'orange'}
-        if(points[i].entity === "Premise"){color = 'lightblue'}
-        temp = '<span style="background-color: ' + color + '" id="text-part-'+ points[i].id+'">' + essay_original.substring(points[i].start, points[i].end) + "</span>";
+        if (points[i].entity === "MajorClaim") {
+            color = 'yellow'
+        }
+        if (points[i].entity === "Claim") {
+            color = 'orange'
+        }
+        if (points[i].entity === "Premise") {
+            color = 'lightblue'
+        }
+        temp = '<span style="background-color: ' + color + '" id="text-part-' + points[i].id + '">'
+            + essay_original.substring(points[i].start, points[i].end) + "</span>";
         essay_html += temp;
         ind = points[i].end + 1;
     }
